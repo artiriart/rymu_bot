@@ -1,3 +1,5 @@
+from os.path import split
+
 from discord.ext import commands
 import discord
 import sqlite3
@@ -9,8 +11,12 @@ class Mine(commands.Cog):
 
     async def mining_interaction(self, user: discord.User, use_menu: bool):
         mana = self.active_sessions[user.id].get("mana", 0)
+        items = self.active_sessions[user.id].get("items", {})
+        item_list = list(map(lambda item: f"{item[0]} - {item[1]}", items.items()))
         embed = discord.Embed(
-            description="# Mining Simulator",
+            description="# Mining Simulator\n"
+                        "**ITEMS COLLECTED:**\n"
+                        f"{"\n".join(item_list) if item_list else "None!"}",
             color=self.active_sessions[user.id].get("embed_color", discord.Color.random())
         )
         embed.set_author(name=user.display_name, icon_url=user.avatar.url)
@@ -29,7 +35,7 @@ class Mine(commands.Cog):
         if interaction.user.id in self.active_sessions:
             await interaction.response.send_message("You already have an active mining session!", ephemeral=True)
             return
-        self.active_sessions[interaction.user.id] = {"mana":0, "embed_color":discord.Color.random()}
+        self.active_sessions[interaction.user.id] = {"mana":0, "embed_color":discord.Color.random(), "items":{}}
         embed, view = await self.mining_interaction(interaction.user, use_menu)
         await interaction.response.send_message(embed=embed, view=view)
 
