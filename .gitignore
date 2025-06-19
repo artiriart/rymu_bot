@@ -1,4 +1,6 @@
-data
+data/.env
+data/database.db
 .venv
 .idea
 cogs/__pycache__/
+testing.py

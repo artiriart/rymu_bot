@@ -1,0 +1,49 @@
+{
+  "mine_default": [
+    {
+      "metal": "aluminum",
+      "chance": 0.2,
+      "emoji": "<:aluminum:1371107372973690880>",
+      "min_amount": 1,
+      "max_amount": 3,
+      "value": 5,
+      "rarity": "common"
+    },
+    {
+      "metal": "iron",
+      "chance": 0.25,
+      "emoji": "<:iron:1371107372973690881>",
+      "min_amount": 1,
+      "max_amount": 2,
+      "value": 10,
+      "rarity": "common"
+    },
+    {
+      "metal": "gold",
+      "chance": 0.15,
+      "emoji": "<:gold:1371107372973690882>",
+      "min_amount": 1,
+      "max_amount": 1,
+      "value": 25,
+      "rarity": "uncommon"
+    },
+    {
+      "metal": "platinum",
+      "chance": 0.05,
+      "emoji": "<:platinum:1371107372973690883>",
+      "min_amount": 1,
+      "max_amount": 1,
+      "value": 50,
+      "rarity": "rare"
+    },
+    {
+      "metal": "mystic_ore",
+      "chance": 0.01,
+      "emoji": "<:mystic:1371107372973690884>",
+      "min_amount": 1,
+      "max_amount": 1,
+      "value": 500,
+      "rarity": "legendary"
+    }
+  ]
+}
